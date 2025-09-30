@@ -98,6 +98,16 @@ const Container = styled.div`
     ${({ theme }) => theme.colors.background},
     ${({ theme }) => theme.colors.backgroundLight}
   );
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.spacing.lg};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.md};
+    align-items: flex-start;
+    padding-top: ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -108,6 +118,10 @@ const ContentWrapper = styled.div`
 const Header = styled.div`
   text-align: center;
   margin-bottom: ${({ theme }) => theme.spacing["2xl"]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-bottom: ${({ theme }) => theme.spacing.lg};
+  }
 `;
 
 const Title = styled.h1`
@@ -121,10 +135,18 @@ const Title = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+  }
 `;
 
 const Subtitle = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+  }
 `;
 
 const StyledCard = styled(Card)``;

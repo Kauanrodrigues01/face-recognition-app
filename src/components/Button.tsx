@@ -122,6 +122,20 @@ const Button = styled.button<ButtonProps>`
   &:active:not(:disabled) {
     transform: translateY(0);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    white-space: normal;
+
+    ${({ size = 'md', theme }) => {
+      if (size === 'lg') {
+        return css`
+          padding: ${`${theme.spacing.md} ${theme.spacing.xl}`};
+          font-size: ${theme.fontSizes.md};
+        `;
+      }
+      return '';
+    }}
+  }
 `;
 
 export default Button;

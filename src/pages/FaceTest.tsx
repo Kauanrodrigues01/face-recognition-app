@@ -209,6 +209,10 @@ const ContentWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: ${({ theme }) => theme.spacing.xl};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 const Description = styled.p`
@@ -216,6 +220,11 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
   margin-bottom: ${({ theme }) => theme.spacing.xl};
   font-size: ${({ theme }) => theme.fontSizes.md};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    margin-bottom: ${({ theme }) => theme.spacing.lg};
+  }
 `;
 
 const ErrorMessage = styled.div`
@@ -231,12 +240,20 @@ const TestCard = styled(Card)`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xl};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    gap: ${({ theme }) => theme.spacing.lg};
+  }
 `;
 
 const ResultCard = styled(Card)<{ success: boolean }>`
   text-align: center;
   padding: ${({ theme }) => theme.spacing['3xl']};
   animation: fadeIn 0.5s ease-out;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 const ResultIcon = styled.div<{ success?: boolean }>`
@@ -328,6 +345,10 @@ const Instructions = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: ${({ theme }) => theme.spacing.lg};
   border: 1px solid ${({ theme }) => theme.colors.border};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 const InstructionTitle = styled.h3`
@@ -345,6 +366,10 @@ const InstructionsList = styled.div`
 const InstructionItem = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.sm};
   color: ${({ theme }) => theme.colors.textSecondary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+  }
 `;
 
 export default FaceTest;

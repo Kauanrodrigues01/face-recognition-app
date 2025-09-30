@@ -42,9 +42,10 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture, disabled = fal
             audio={false}
             screenshotFormat="image/jpeg"
             videoConstraints={{
-              width: 1280,
-              height: 720,
+              width: { ideal: 1280 },
+              height: { ideal: 720 },
               facingMode: 'user',
+              aspectRatio: window.innerWidth < 768 ? 0.75 : 1.777,
             }}
           />
         )}
@@ -87,6 +88,10 @@ const Container = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    gap: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 const WebcamContainer = styled.div`
@@ -97,6 +102,16 @@ const WebcamContainer = styled.div`
   background: ${({ theme }) => theme.colors.backgroundLight};
   box-shadow: ${({ theme }) => theme.shadows.xl};
   aspect-ratio: 16 / 9;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    aspect-ratio: 3 / 4;
+    min-height: 500px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    aspect-ratio: 3 / 4;
+    min-height: 450px;
+  }
 `;
 
 const StyledWebcam = styled(Webcam)`
@@ -136,6 +151,14 @@ const Overlay = styled.div`
       ${({ theme }) => theme.colors.secondary}40
     );
     animation: pulse 2s ease-in-out infinite;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 70%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    width: 75%;
   }
 `;
 
@@ -220,6 +243,11 @@ const Instructions = styled.div`
   background: ${({ theme }) => theme.colors.backgroundLight};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.border};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: ${({ theme }) => theme.spacing.sm};
+    gap: ${({ theme }) => theme.spacing.xs};
+  }
 `;
 
 const InstructionItem = styled.div`
@@ -228,6 +256,10 @@ const InstructionItem = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+  }
 `;
 
 export default WebcamCapture;
