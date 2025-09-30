@@ -89,7 +89,7 @@ const Dashboard: React.FC = () => {
               </StatusText>
             </BiometricStatus>
             {!user?.face_enrolled && (
-              <Button fullWidth onClick={handleEnrollFace}>
+              <Button $fullWidth onClick={handleEnrollFace}>
                 <FaUserPlus /> Cadastrar Biometria
               </Button>
             )}

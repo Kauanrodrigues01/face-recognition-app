@@ -118,7 +118,7 @@ const Register: React.FC = () => {
               </InputWrapper>
             </InputGroup>
 
-            <Button type="submit" fullWidth isLoading={loading} disabled={loading}>
+            <Button type="submit" $fullWidth $isLoading={loading} disabled={loading}>
               {loading ? 'Criando conta...' : 'Criar Conta'}
             </Button>
           </Form>
