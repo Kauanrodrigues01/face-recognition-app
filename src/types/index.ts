@@ -3,6 +3,7 @@ export interface User {
   email: string;
   name: string;
   is_active?: boolean;
+  is_superuser?: boolean;
   face_enrolled: boolean;
   created_at?: string;
 }
@@ -16,6 +17,7 @@ export interface RegisterData {
   email: string;
   name: string;
   password: string;
+  is_superuser?: boolean;
 }
 
 export interface FaceLoginData {

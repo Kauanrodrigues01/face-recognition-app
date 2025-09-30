@@ -10,22 +10,34 @@ import type { User } from '../types';
 
 const Users: React.FC = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, user: currentUser } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // Check if user is admin
+    if (currentUser && !currentUser.is_superuser) {
+      setError('Acesso negado. Apenas administradores podem gerenciar usuários.');
+      setLoading(false);
+      return;
+    }
+
     loadUsers();
-  }, []);
+  }, [currentUser]);
 
   const loadUsers = async () => {
     try {
       setLoading(true);
       const data = await userService.getAll();
       setUsers(data);
-    } catch (err) {
-      setError('Erro ao carregar usuários');
+    } catch (err: unknown) {
+      const error = err as { response?: { status?: number; data?: { detail?: string } } };
+      if (error.response?.status === 403) {
+        setError('Acesso negado. Apenas administradores podem gerenciar usuários.');
+      } else {
+        setError(error.response?.data?.detail || 'Erro ao carregar usuários');
+      }
       console.error(err);
     } finally {
       setLoading(false);
@@ -40,8 +52,13 @@ const Users: React.FC = () => {
     try {
       await userService.delete(userId);
       setUsers(users.filter(u => u.id !== userId));
-    } catch (err) {
-      setError('Erro ao deletar usuário');
+    } catch (err: unknown) {
+      const error = err as { response?: { status?: number; data?: { detail?: string } } };
+      if (error.response?.status === 403) {
+        setError('Acesso negado. Apenas administradores podem deletar usuários.');
+      } else {
+        setError(error.response?.data?.detail || 'Erro ao deletar usuário');
+      }
       console.error(err);
     }
   };

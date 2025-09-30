@@ -15,6 +15,7 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isSuperuser, setIsSuperuser] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -35,10 +36,11 @@ const Register: React.FC = () => {
     setLoading(true);
 
     try {
-      await register({ name, email, password });
+      await register({ name, email, password, is_superuser: isSuperuser });
       navigate('/enroll-face');
-    } catch (err: any) {
-      setError(err.response?.data?.detail || 'Erro ao criar conta. Tente novamente.');
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { detail?: string } } };
+      setError(error.response?.data?.detail || 'Erro ao criar conta. Tente novamente.');
     } finally {
       setLoading(false);
     }
@@ -117,6 +119,21 @@ const Register: React.FC = () => {
                 />
               </InputWrapper>
             </InputGroup>
+
+            <CheckboxGroup>
+              <CheckboxLabel>
+                <Checkbox
+                  type="checkbox"
+                  checked={isSuperuser}
+                  onChange={(e) => setIsSuperuser(e.target.checked)}
+                  disabled={loading}
+                />
+                <CheckboxText>Cadastrar como Administrador</CheckboxText>
+              </CheckboxLabel>
+              <CheckboxDescription>
+                Administradores têm acesso ao gerenciamento de usuários
+              </CheckboxDescription>
+            </CheckboxGroup>
 
             <Button type="submit" $fullWidth $isLoading={loading} disabled={loading}>
               {loading ? 'Criando conta...' : 'Criar Conta'}
@@ -216,6 +233,48 @@ const ErrorMessage = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.md};
   color: ${({ theme }) => theme.colors.error};
   font-size: ${({ theme }) => theme.fontSizes.sm};
+`;
+
+const CheckboxGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xs};
+  padding: ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  cursor: pointer;
+  user-select: none;
+`;
+
+const Checkbox = styled.input`
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: ${({ theme }) => theme.colors.primary};
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
+
+const CheckboxText = styled.span`
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+const CheckboxDescription = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-left: ${({ theme }) => theme.spacing.xl};
 `;
 
 const Divider = styled.div`

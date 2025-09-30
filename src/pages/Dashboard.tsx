@@ -99,15 +99,17 @@ const Dashboard: React.FC = () => {
         <ActionsSection>
           <SectionTitle>Ações Disponíveis</SectionTitle>
           <ActionsList>
-            <ActionCard onClick={() => navigate('/users')}>
-              <ActionIcon>
-                <FaUsers size={32} />
-              </ActionIcon>
-              <ActionText>
-                <ActionTitle>Gerenciar Usuários</ActionTitle>
-                <ActionDescription>Visualize e gerencie todos os usuários do sistema</ActionDescription>
-              </ActionText>
-            </ActionCard>
+            {user?.is_superuser && (
+              <ActionCard onClick={() => navigate('/users')}>
+                <ActionIcon>
+                  <FaUsers size={32} />
+                </ActionIcon>
+                <ActionText>
+                  <ActionTitle>Gerenciar Usuários</ActionTitle>
+                  <ActionDescription>Visualize e gerencie todos os usuários do sistema</ActionDescription>
+                </ActionText>
+              </ActionCard>
+            )}
             <ActionCard onClick={() => navigate('/face-test')}>
               <ActionIcon>
                 <FaCamera size={32} />
