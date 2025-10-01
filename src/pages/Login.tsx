@@ -131,7 +131,7 @@ const Login: React.FC = () => {
               </Button>
             </Form>
           ) : (
-            <FaceLoginContainer>
+            <FaceLoginForm onSubmit={(e) => e.preventDefault()}>
               <InputGroup>
                 <Label>Email</Label>
                 <InputWrapper>
@@ -150,7 +150,7 @@ const Login: React.FC = () => {
               </InputGroup>
 
               <WebcamCapture onCapture={handleFaceLogin} disabled={loading} />
-            </FaceLoginContainer>
+            </FaceLoginForm>
           )}
 
           <Divider>
@@ -301,7 +301,7 @@ const Form = styled.form`
   gap: ${({ theme }) => theme.spacing.lg};
 `;
 
-const FaceLoginContainer = styled.div`
+const FaceLoginForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xl};
