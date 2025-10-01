@@ -54,17 +54,17 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture, disabled = fal
 
       <ButtonGroup>
         {!capturedImage ? (
-          <CaptureButton onClick={capture} disabled={disabled}>
+          <CaptureButton type="button" onClick={capture} disabled={disabled}>
             <FaCamera size={20} />
             <span>Capturar Foto</span>
           </CaptureButton>
         ) : (
           <>
-            <RetakeButton onClick={retake} disabled={disabled}>
+            <RetakeButton type="button" onClick={retake} disabled={disabled}>
               <FaRedo size={18} />
               <span>Tirar Novamente</span>
             </RetakeButton>
-            <ConfirmButton onClick={confirm} disabled={disabled}>
+            <ConfirmButton type="button" onClick={confirm} disabled={disabled}>
               <FaCheck size={18} />
               <span>Confirmar</span>
             </ConfirmButton>
