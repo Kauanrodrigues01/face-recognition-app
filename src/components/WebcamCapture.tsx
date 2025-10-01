@@ -118,12 +118,14 @@ const StyledWebcam = styled(Webcam)`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scaleX(-1);
 `;
 
 const CapturedImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scaleX(-1);
 `;
 
 const Overlay = styled.div`
