@@ -54,9 +54,15 @@ const Login: React.FC = () => {
         error.response?.data?.detail ||
           'Falha no reconhecimento facial. Tente novamente ou use login tradicional.'
       );
+      // Keep mode as 'face' when there's an error
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleModeChange = (newMode: 'traditional' | 'face') => {
+    setMode(newMode);
+    setError('');
   };
 
   return (
@@ -72,11 +78,11 @@ const Login: React.FC = () => {
 
         <StyledCard>
           <ModeToggle>
-            <ModeButton $active={mode === 'traditional'} onClick={() => setMode('traditional')}>
+            <ModeButton $active={mode === 'traditional'} onClick={() => handleModeChange('traditional')}>
               <FaLock size={18} />
               <span>Senha</span>
             </ModeButton>
-            <ModeButton $active={mode === 'face'} onClick={() => setMode('face')}>
+            <ModeButton $active={mode === 'face'} onClick={() => handleModeChange('face')}>
               <FaFacebook size={18} />
               <span>Facial</span>
             </ModeButton>
