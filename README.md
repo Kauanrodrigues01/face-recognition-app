@@ -1,11 +1,11 @@
 # Face Recognition App - Sistema de Autenticação Biométrica
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kauanrodrigues01/Kauanrodrigues01/refs/heads/main/images/projetos/face-recognition/dashboard.png" alt="Dashboard" width="700"/>
+  <img src="https://raw.githubusercontent.com/Kauanrodrigues01/Kauanrodrigues01/refs/heads/main/images/projetos/face-recognition-app/face-recognition-app.png" alt="Dashboard" width="700"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kauanrodrigues01/Kauanrodrigues01/refs/heads/main/images/projetos/face-recognition/login.png" alt="Login" width="700"/>
+  <img src="https://raw.githubusercontent.com/Kauanrodrigues01/Kauanrodrigues01/refs/heads/main/images/projetos/face-recognition-app/face-recognition-app-login.png" alt="Login" width="700"/>
 </p>
 
 ## 📋 Sobre o Projeto
