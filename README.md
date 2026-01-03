@@ -14,12 +14,12 @@ Sistema de autenticação biométrica desenvolvido com React e TypeScript que pe
 
 ## 🚀 Tecnologias Utilizadas
 
-![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Styled Components](https://img.shields.io/badge/Styled_Components-6.1.19-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![Axios](https://img.shields.io/badge/Axios-1.12.2-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-7.9.3-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ## ✨ Funcionalidades
 
@@ -203,7 +203,7 @@ Este projeto está sob a licença MIT.
 
 **Kauan Rodrigues Lima**
 
-- GitHub: [@Kauanrodrigues01](https://github.com/Kauanrodrigues01)
+- GitHub: [Kauanrodrigues01](https://github.com/Kauanrodrigues01)
 - LinkedIn: [Kauan Rodrigues](https://www.linkedin.com/in/kauan-rodrigues-778621290/)
 
 ---
